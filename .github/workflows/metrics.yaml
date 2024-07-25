@@ -77,7 +77,8 @@ jobs:
           plugin_people_types: followers,following
           # Featured repositaries
           plugin_repositories: yes
-          plugin_repositories_order: starred
+          plugin_repositories_order: starred, pinned
+          plugin_repositories_affiliations: owner, collaborator, organization_member
           # Star list
           plugin_starlists: yes
           plugin_starlists_limit: 10
