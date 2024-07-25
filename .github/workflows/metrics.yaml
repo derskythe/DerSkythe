@@ -13,6 +13,9 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
+          base: header,activity,repositories,metadata,community
+          base_indepth: true
+          base_hireable: true          
           token: ${{ secrets.METRICS_TOKEN }}
           template: repository
           user: derskythe
