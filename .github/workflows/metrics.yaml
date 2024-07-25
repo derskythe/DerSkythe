@@ -1,0 +1,62 @@
+name: Metrics
+on:
+  schedule: [{cron: "0 0 * * *"}]
+  workflow_dispatch:
+  push: {branches: ["master"]}
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          template: repository
+          # Topics
+          plugin_topics: yes
+          plugin_topics_mode: icons
+          plugin_topics_sort: stars
+          plugin_topics_limit: 30
+          # Lines
+          plugin_lines: yes
+          plugin_lines_history_limit: 355
+          plugin_lines_delay: 120
+          # Followp
+          plugin_followup: yes
+          # ISO Calendar
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          # Languages
+          plugin_languages: yes
+          # StarGazers
+          plugin_stargazers: yes
+          plugin_stargazers_charts: yes
+          plugin_stargazers_charts_type: graph
+          # Recently stared
+          plugin_stars: yes
+          plugin_stars_limit: 10
+          # Habits
+          plugin_habits: yes
+          plugin_habits_days: 14
+          plugin_habits_charts: yes
+          plugin_habits_charts_type: graph
+          plugin_habits_trim: true
+          # People
+          plugin_people: yes
+          plugin_people_identicons: yes
+          plugin_people_types: followers,following
+          # Featured repositaries
+          plugin_repositories: yes
+          plugin_repositories_order: starred
+          # Star list
+          plugin_starlists: yes
+          plugin_starlists_limit: 10
+          plugin_starlists_limit_repositories: 10
+          # Calendar
+          plugin_calendar: yes
+          plugin_calendar_limit: 2
+          # Intoduction
+          plugin_introduction: yes
