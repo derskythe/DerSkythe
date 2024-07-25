@@ -1,3 +1,4 @@
+# https://github.com/lowlighter/metrics
 name: Metrics
 on:
   schedule: [{cron: "0 0 * * *"}]
@@ -13,7 +14,8 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          base: header,activity,repositories,metadata,community
+          #base: header,activity,repositories,metadata,community
+          base: header,activity,repositories,community
           base_indepth: true
           base_hireable: true
           community: owner,collaborator,organization_member
