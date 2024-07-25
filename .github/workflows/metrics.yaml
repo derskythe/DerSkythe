@@ -15,7 +15,8 @@ jobs:
         with:
           base: header,activity,repositories,metadata,community
           base_indepth: true
-          base_hireable: true          
+          base_hireable: true
+          community: owner,collaborator,organization_member
           token: ${{ secrets.METRICS_TOKEN }}
           template: repository
           user: derskythe
@@ -37,9 +38,9 @@ jobs:
           # Languages
           plugin_languages: yes
           # StarGazers
-          plugin_stargazers: yes
-          plugin_stargazers_charts: yes
-          plugin_stargazers_charts_type: graph
+          # plugin_stargazers: yes
+          # plugin_stargazers_charts: yes
+          # plugin_stargazers_charts_type: graph
           # Recently stared
           plugin_stars: yes
           plugin_stars_limit: 10
@@ -47,7 +48,7 @@ jobs:
           plugin_habits: yes
           plugin_habits_days: 14
           plugin_habits_charts: yes
-          plugin_habits_charts_type: graph
+          plugin_habits_charts_type: classic
           plugin_habits_trim: true
           # People
           plugin_people: yes
