@@ -39,7 +39,7 @@ jobs:
           #template: repository
           template: classic
           user: derskythe
-          repo: derskythe
+          # repo: derskythe
           # Topics
           plugin_topics: yes
           plugin_topics_mode: icons
