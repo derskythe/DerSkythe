@@ -12,15 +12,32 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: lowlighter/metrics@latest
+      - uses: lowlighter/metrics@master
         with:
+          retries: 3
+          retries_delay: 300
+          optimize: css, xml
+          use_prebuilt_image: yes
+          output_action: commit
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_branch: master
+          config_timezone: Asia/Baku
+          config_twemoji: true
+          clean_workflows: failure, cancelled, startup_failure, timed_out
+          verify: true
+          # To check 
+          # plugins_errors_fatal: true
+          # debug: true
+          # debug_print: true
+          config_order: base.header, isocalendar, languages, stars, lines, base.repositories, habits, starlists, people, reactions, base.activity+community, followup, 
           #base: header,activity,repositories,metadata,community
-          base: header,activity,repositories,community
+          #base: header,activity,repositories,community
           base_indepth: true
           base_hireable: true
-          community: owner,collaborator,organization_member
+          repositories_affiliations: owner,collaborator,organization_member
           token: ${{ secrets.METRICS_TOKEN }}
-          template: repository
+          #template: repository
+          template: classic
           user: derskythe
           repo: derskythe
           # Topics
@@ -52,6 +69,8 @@ jobs:
           plugin_habits_charts: yes
           plugin_habits_charts_type: classic
           plugin_habits_trim: true
+          # Reactions
+          plugin_reactions: true
           # People
           plugin_people: yes
           plugin_people_identicons: yes
