@@ -25,6 +25,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - run: gh repo sync ${{ matrix.repo }} -b ${{ matrix.branch }}
+      - run: gh repo sync -r ${{ matrix.repo }} -b ${{ matrix.branch }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
