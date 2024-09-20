@@ -3,7 +3,14 @@ name: Metrics
 on:
   schedule: [{cron: "0 0 * * *"}]
   workflow_dispatch:
-  push: {branches: ["master"]}
+  push: 
+    branches: ["master"]
+    paths:
+      - '.githun/workflows/metrics.yaml'
+      - '.github/dependabot.yml'
+      - 'README.md'
+      - 'github-metrics.svg'
+      
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
