@@ -7,7 +7,7 @@ on:
   push:
     branches: master
     paths:
-      - 'auto-sync-fork.yaml'
+      - '.github/workflows/auto-sync-fork.yaml'
 
 # TODO: Array of forks
 jobs:
