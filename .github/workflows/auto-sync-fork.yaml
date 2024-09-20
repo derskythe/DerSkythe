@@ -8,11 +8,23 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        repo:
+          [ 'derskythe/flipperzero-subbrute', 'derskythe/libuv', 'derskythe/mlib', 'derskythe/emv-utils' ]
+        include:
+          - repo: 'derskythe/flipperzero-subbrute'
+            branch: 'master'
+          - repo: 'derskythe/libuv'
+            branch: 'v1.x'
+          - repo: 'derskythe/mlib'
+            branch: 'master'
+          - repo: 'derskythe/emv-utils'
+            branch: 'master'
     permissions:
       contents: write
     steps:
-      - run: gh repo sync $REPOSITORY -b $BRANCH_NAME
+      - run: gh repo sync ${{ matrix.repo }} -b ${{ matrix.branch }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPOSITORY: ${{ github.repository }}
-          BRANCH_NAME: ${{ github.ref_name }}
