@@ -17,7 +17,12 @@ jobs:
       fail-fast: false
       matrix:
         repo:
-          [ 'derskythe/flipperzero-subbrute', 'derskythe/libuv', 'derskythe/mlib', 'derskythe/emv-utils' ]
+          - 'derskythe/flipperzero-subbrute' 
+          - 'derskythe/libuv'
+          - 'derskythe/mlib' 
+          - 'derskythe/emv-utils'
+          - 'derskythe/IOTstack'
+          - 'derskythe/SoapCore'
         include:
           - repo: 'derskythe/flipperzero-subbrute'
             branch: 'master'
@@ -26,6 +31,10 @@ jobs:
           - repo: 'derskythe/mlib'
             branch: 'master'
           - repo: 'derskythe/emv-utils'
+            branch: 'master'
+          - repo: 'derskythe/IOTstack'
+            branch: 'master'
+          - repo: 'derskythe/SoapCore'
             branch: 'master'
     permissions:
       contents: write
