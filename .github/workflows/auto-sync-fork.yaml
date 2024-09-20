@@ -1,8 +1,13 @@
 name: sync-fork
+run-name: 'Auto sync fork repositories by the event ${{ github.event_name }}'
 on:
   schedule:
     - cron: '0 * * * *'
   workflow_dispatch: { }
+  push:
+    branches: master
+    paths:
+      - 'auto-sync-fork.yaml'
 
 # TODO: Array of forks
 jobs:
