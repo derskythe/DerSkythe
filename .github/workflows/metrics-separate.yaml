@@ -1,0 +1,193 @@
+# https://github.com/lowlighter/metrics
+name: Metrics Separate
+on:
+  schedule: [{cron: "0 0 * * *"}]
+  workflow_dispatch:
+  push: 
+    branches: ["master"]
+    paths:
+      - '.githun/workflows/metrics-separate.yaml'
+      - 'README.md'
+      
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    environment: 
+      name: production
+    permissions:
+      contents: write
+    steps:
+      - name: base
+        uses: lowlighter/metrics@master
+        with:
+          retries: 3
+          retries_delay: 300
+          optimize: css, xml
+          use_prebuilt_image: yes
+          output_action: commit
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_branch: master
+          config_timezone: Asia/Baku
+          config_twemoji: true
+          clean_workflows: failure, cancelled, startup_failure, timed_out
+          verify: true
+          # To check 
+          # plugins_errors_fatal: true
+          # debug: true
+          # debug_print: true
+          config_order: base.header, isocalendar, languages, stars, lines, base.repositories, habits, starlists, people, reactions, base.activity+community, followup, 
+#base: header,activity,repositories,metadata,community
+          #base: header,activity,repositories,community
+          base_indepth: true
+          base_hireable: true
+          repositories_affiliations: owner,collaborator,organization_member
+          token: ${{ secrets.METRICS_TOKEN }}
+          #template: repository
+          template: classic
+          user: derskythe
+          # repo: derskythe
+          # Topics
+          plugin_topics: yes
+          plugin_topics_mode: icons
+          plugin_topics_sort: stars
+          plugin_topics_limit: 30
+      - name: Copy image
+        run: |
+          mv github-metrics.svg base.svg
+      - name: lines
+        uses: lowlighter/metrics@master
+        with:
+          retries: 3
+          retries_delay: 300
+          optimize: css, xml
+          use_prebuilt_image: yes
+          output_action: commit
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_branch: master
+          config_timezone: Asia/Baku
+          config_twemoji: true
+          clean_workflows: failure, cancelled, startup_failure, timed_out
+          verify: true
+          # To check 
+          # plugins_errors_fatal: true
+          # debug: true
+          # debug_print: true
+          config_order: base.header, isocalendar, languages, stars, lines, base.repositories, habits, starlists, people, reactions, base.activity+community, followup, 
+#base: header,activity,repositories,metadata,community
+          #base: header,activity,repositories,community
+          base_indepth: true
+          base_hireable: true
+          repositories_affiliations: owner,collaborator,organization_member
+          token: ${{ secrets.METRICS_TOKEN }}
+          #template: repository
+          template: classic
+          user: derskythe
+          # repo: derskythe
+          # Lines
+          plugin_lines: yes
+          plugin_lines_history_limit: 355
+          plugin_lines_delay: 120
+      - name: Copy image
+        run: |
+          mv github-metrics.svg lines.svg
+      - name: lines
+        uses: lowlighter/metrics@master
+        with:
+          retries: 3
+          retries_delay: 300
+          optimize: css, xml
+          use_prebuilt_image: yes
+          output_action: commit
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_branch: master
+          config_timezone: Asia/Baku
+          config_twemoji: true
+          clean_workflows: failure, cancelled, startup_failure, timed_out
+          verify: true
+          # To check 
+          # plugins_errors_fatal: true
+          # debug: true
+          # debug_print: true
+          config_order: base.header, isocalendar, languages, stars, lines, base.repositories, habits, starlists, people, reactions, base.activity+community, followup, 
+#base: header,activity,repositories,metadata,community
+          #base: header,activity,repositories,community
+          base_indepth: true
+          base_hireable: true
+          repositories_affiliations: owner,collaborator,organization_member
+          token: ${{ secrets.METRICS_TOKEN }}
+          #template: repository
+          template: classic
+          user: derskythe
+          # repo: derskythe
+          # Followp
+          plugin_followup: yes
+      - name: Copy image
+        run: |
+          mv github-metrics.svg followup.svg
+      - name: iso-calendar
+        uses: lowlighter/metrics@master
+        with:
+          retries: 3
+          retries_delay: 300
+          optimize: css, xml
+          use_prebuilt_image: yes
+          output_action: commit
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_branch: master
+          config_timezone: Asia/Baku
+          config_twemoji: true
+          clean_workflows: failure, cancelled, startup_failure, timed_out
+          verify: true
+          # To check 
+          # plugins_errors_fatal: true
+          # debug: true
+          # debug_print: true
+          config_order: base.header, isocalendar, languages, stars, lines, base.repositories, habits, starlists, people, reactions, base.activity+community, followup, 
+#base: header,activity,repositories,metadata,community
+          #base: header,activity,repositories,community
+          base_indepth: true
+          base_hireable: true
+          repositories_affiliations: owner,collaborator,organization_member
+          token: ${{ secrets.METRICS_TOKEN }}
+          #template: repository
+          template: classic
+          user: derskythe
+          # ISO Calendar
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+      - name: Copy image
+        run: |
+          mv github-metrics.svg iso-calendar.svg
+      - name: languages
+        uses: lowlighter/metrics@master
+        with:
+          retries: 3
+          retries_delay: 300
+          optimize: css, xml
+          use_prebuilt_image: yes
+          output_action: commit
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_branch: master
+          config_timezone: Asia/Baku
+          config_twemoji: true
+          clean_workflows: failure, cancelled, startup_failure, timed_out
+          verify: true
+          # To check 
+          # plugins_errors_fatal: true
+          # debug: true
+          # debug_print: true
+          config_order: base.header, isocalendar, languages, stars, lines, base.repositories, habits, starlists, people, reactions, base.activity+community, followup, 
+#base: header,activity,repositories,metadata,community
+          #base: header,activity,repositories,community
+          base_indepth: true
+          base_hireable: true
+          repositories_affiliations: owner,collaborator,organization_member
+          token: ${{ secrets.METRICS_TOKEN }}
+          #template: repository
+          template: classic
+          user: derskythe
+          # Languages
+          plugin_languages: yes
+      - name: Copy image
+        run: |
+          mv github-metrics.svg languages.svg
