@@ -48,7 +48,7 @@ jobs:
           - repo: 'derskythe/SoapCore'
             branch: 'master'
           - name: 'derskythe/flipperzero-firmware-derskythe'
-            branch: 'custom'
+            branch: 'dev'
           - name: 'derskythe/all-the-plugins'
             branch: 'dev'
           - name: 'derskythe/Flipper'
