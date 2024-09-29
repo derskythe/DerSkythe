@@ -58,7 +58,7 @@ jobs:
           - repo: 'derskythe/awesome-flipperzero'
             branch: 'master'
           - repo: 'derskythe/flipper-zero-fap-boilerplate'
-            branch: 'master'
+            branch: 'main'
           - repo: 'derskythe/FZEasyMarauderFlash'
             branch: 'master'
           - repo: 'derskythe/totp-manager-dotnetcore'
@@ -66,9 +66,9 @@ jobs:
           - repo: 'derskythe/OBD.NET'
             branch: 'master'
           - repo: 'derskythe/zerotier-docker'
-            branch: 'master'
+            branch: 'main'
           - repo: 'derskythe/dotnet-document'
-            branch: 'master'
+            branch: 'main'
     permissions:
       contents: write
     steps:
